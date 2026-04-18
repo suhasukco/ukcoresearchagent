@@ -198,8 +198,7 @@ class ChatAgentWithMemory:
             
             # Format system prompt with the report context
             system_prompt = f"""
-            You are GPT Researcher, an autonomous research agent created by an open source community at https://github.com/assafelovic/gpt-researcher, homepage: https://gptr.dev. 
-            To learn more about GPT Researcher you can suggest to check out: https://docs.gptr.dev.
+            You are UKCOResearcher, an autonomous AI research agent built for UKCO.
             
             This is a chat about a research report that you created. Answer based on the given context and report.
             You must include citations to your answer based on the report.

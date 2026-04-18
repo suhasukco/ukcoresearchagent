@@ -15,7 +15,9 @@ export const preprocessOrderedData = (data: Data[]) => {
   data.forEach((item: any) => {
     const { type, content, metadata, output, link } = item;
 
-    if (type === 'question') {
+    if (type === 'perplexity_response') {
+      groupedData.push({ type: 'perplexityResponseBlock', output: (item as any).output });
+    } else if (type === 'question') {
       groupedData.push({ type: 'question', content });
     } else if (type === 'report') {
       // Start a new report group if we don't have one

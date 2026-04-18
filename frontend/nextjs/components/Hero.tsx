@@ -1,4 +1,3 @@
-import Image from "next/image";
 import React, { FC, useEffect, useState, useRef } from "react";
 import InputArea from "./ResearchBlocks/elements/InputArea";
 import { motion, AnimatePresence } from "framer-motion";
@@ -116,7 +115,7 @@ const Hero: FC<THeroProps> = ({
           transition={{ duration: 0.8, delay: 0.1 }}
           className="text-2xl sm:text-3xl md:text-4xl font-medium text-center text-white mb-8 sm:mb-10 md:mb-12 px-4"
         >
-          What would you like to research next?
+          What would you like to research today?
         </motion.h1>
 
         {/* Input section with enhanced styling */}
@@ -143,7 +142,7 @@ const Hero: FC<THeroProps> = ({
             className="mt-6 text-center px-4"
           >
             <p className="text-gray-400 text-sm font-light">
-              GPT Researcher may make mistakes. Verify important information and check sources.
+              UKCOResearcher may make mistakes. Always verify important information and check sources.
             </p>
           </motion.div>
         </motion.div>

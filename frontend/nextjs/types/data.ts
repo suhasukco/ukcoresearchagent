@@ -29,7 +29,17 @@ export interface ChatData extends BaseData {
   metadata?: any; // For storing search results and other contextual information
 }
 
-export type Data = BasicData | LanggraphButtonData | DifferencesData | QuestionData | ChatData;
+export interface PerplexityResponseData extends BaseData {
+  type: 'perplexity_response';
+  output: {
+    answer: string;
+    key_points: string[];
+    follow_up_questions: string[];
+    confidence: 'high' | 'medium' | 'low';
+  };
+}
+
+export type Data = BasicData | LanggraphButtonData | DifferencesData | QuestionData | ChatData | PerplexityResponseData;
 
 export interface MCPConfig {
   name: string;

@@ -177,6 +177,17 @@ async def handle_start_command(websocket, data: str, manager):
     file_paths["json"] = os.path.relpath(logs_handler.log_file)
     await send_file_paths(websocket, file_paths)
 
+    # Extend flow: generate Perplexity-style structured response after report
+    try:
+        from chat.perplexity_formatter import generate_perplexity_response
+        perplexity_data = await generate_perplexity_response(task, report)
+        await websocket.send_json({
+            "type": "perplexity_response",
+            "output": perplexity_data
+        })
+    except Exception as perplexity_err:
+        logger.warning(f"Perplexity response skipped: {perplexity_err}")
+
 
 async def handle_human_feedback(data: str):
     feedback_data = json.loads(data[14:])  # Remove "human_feedback" prefix
